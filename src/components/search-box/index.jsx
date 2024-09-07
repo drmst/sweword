@@ -1,6 +1,11 @@
 import React from "react";
 
-const SearchBox = ({ searchParameter, setSearchParameter, handleSearch }) => {
+const SearchBox = ({
+  searchParameter,
+  setSearchParameter,
+  handleSearch,
+  setTargetLanguage,
+}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch(searchParameter);
@@ -21,7 +26,30 @@ const SearchBox = ({ searchParameter, setSearchParameter, handleSearch }) => {
           Ara
         </button>
       </form>
-      <div><h3>Choose language</h3></div>
+      <div>
+        <h3>Choose language</h3>
+        <h3
+          onClick={() => {
+            setTargetLanguage("tur");
+          }}
+        >
+          tur
+        </h3>
+        <h3
+          onClick={() => {
+            setTargetLanguage("swe");
+          }}
+        >
+          swe
+        </h3>
+        <h3
+          onClick={() => {
+            setTargetLanguage("fin");
+          }}
+        >
+          fin
+        </h3>
+      </div>
     </div>
   );
 };

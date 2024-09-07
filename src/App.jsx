@@ -8,10 +8,11 @@ const BASE_URL = "http://lexin.nada.kth.se/lexin/service?searchinfo=to,swe_";
 
 function App() {
   const [targetLanguage, setTargetLanguage] = useState("swe");
-
   const [searchParameter, setSearchParameter] = useState("");
+  const [searchURL, setSearchURL] = useState("https://lexin.nada.kth.se/lexin/service?searchinfo=to,swe_swe,hej&output=JSON");
+
   const handleSearch = (searchParameter) => {
-    const searchURL = `${BASE_URL}${targetLanguage},${searchParameter}&output=JSON`;
+    setSearchURL(`${BASE_URL}${targetLanguage},${searchParameter}&output=JSON`);
     console.log(searchURL);
   };
 
@@ -21,8 +22,9 @@ function App() {
         searchParameter={searchParameter}
         setSearchParameter={setSearchParameter}
         handleSearch={handleSearch}
+        setTargetLanguage={setTargetLanguage}
       />
-      <WordContainer />
+      <WordContainer searchURL={searchURL} />
     </div>
   );
 }
